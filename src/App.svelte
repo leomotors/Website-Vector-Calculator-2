@@ -1,14 +1,17 @@
 <script lang="ts">
-    export let name: string;
 </script>
 
+<head>
+    <title>Vector Calculator</title>
+</head>
+
 <main>
-    <h1>Hello {name}!</h1>
-    <p>
-        Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
-        how to build Svelte apps.
-    </p>
+    <h1>Website Vector Calculator (Version 2)</h1>
 </main>
+
+<footer>
+    <p>Made with Svelte</p>
+</footer>
 
 <style>
     main {
