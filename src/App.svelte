@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { projectInfo } from "./constants/ProjectInfo";
+    import { projectInfo } from "./json/ProjectInfo.json";
 </script>
 
 <body id="MainBody">
@@ -23,50 +23,5 @@
 </body>
 
 <style lang="scss">
-    @media (min-width: 640px) {
-        main {
-            max-width: none;
-        }
-    }
-
-    * {
-        text-align: center;
-    }
-
-    main,
-    footer {
-        padding: 1em;
-        max-width: 100vw;
-        margin: 0 auto;
-    }
-
-    main {
-        background-color: rgba(225, 226, 244, 0.6);
-        border-radius: 1.33em;
-    }
-
-    h1 {
-        color: #ff3e00;
-        font-size: 3em;
-        font-weight: 100;
-    }
-
-    footer {
-        position: fixed;
-        bottom: 1em;
-        width: 100vw;
-        #footer-msg {
-            background-color: lavender;
-            padding: 0.5em;
-        }
-    }
-
-    #MainBody {
-        /* bg img is temp */
-        background-image: url("https://static.zerochan.net/Gochuumon.wa.Usagi.Desu.ka.full.3182832.jpg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        margin: 0px !important;
-    }
+    @import "AppStyle";
 </style>
