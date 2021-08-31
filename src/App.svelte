@@ -14,11 +14,16 @@
     </main>
 
     <footer>
-        <p id="footer-msg">
-            Made with Svelte by <a href={projectInfo.AuthorGitHubUrl}>
+        <span id="footer-msg">
+            Made with Svelte by
+            <a href={projectInfo.AuthorGitHubUrl} target="_blank">
                 {projectInfo.AuthorName}
             </a>
-        </p>
+            | Visit on
+            <a href={projectInfo.ProjectGitHubUrl} target="_blank">GitHub</a>
+            |
+            <a href={projectInfo.こころぴょんぴょん} target="_blank">Kofi</a>
+        </span>
     </footer>
 </body>
 
