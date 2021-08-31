@@ -2,10 +2,6 @@
     import { projectInfo } from "./constants/ProjectInfo";
 </script>
 
-<head>
-    <title>Vector Calculator</title>
-</head>
-
 <body id="MainBody">
     <header>
         <h1>Website Vector Calculator (Version 2)</h1>
