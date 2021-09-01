@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { projectInfo } from "./json/ProjectInfo.json";
+    import FooterBar from "./components/FooterBar.svelte";
 </script>
 
 <body id="MainBody">
@@ -13,18 +13,7 @@
         <h2>Content of Website Here</h2>
     </main>
 
-    <footer>
-        <span id="footer-msg">
-            Made with Svelte by
-            <a href={projectInfo.AuthorGitHubUrl} target="_blank">
-                {projectInfo.AuthorName}
-            </a>
-            | Visit on
-            <a href={projectInfo.ProjectGitHubUrl} target="_blank">GitHub</a>
-            |
-            <a href={projectInfo.こころぴょんぴょん} target="_blank">Kofi</a>
-        </span>
-    </footer>
+    <footer><FooterBar /></footer>
 </body>
 
 <style lang="scss">
