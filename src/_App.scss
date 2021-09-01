@@ -4,8 +4,6 @@ $svelte-h1-color: #ff3e00;
 $main-bg-color: rgba(225, 226, 244, 0.85);
 
 #MainBody {
-    /* bg img is temp */
-    background-image: url("https://static.zerochan.net/Gochuumon.wa.Usagi.Desu.ka.full.3182832.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -48,7 +46,7 @@ footer {
 
 #VectorsCard {
     display: flex;
-    margin: 2em 3em;
+    margin: 1.5em 2.5em;
 }
 
 button {

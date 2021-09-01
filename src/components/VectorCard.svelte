@@ -13,12 +13,16 @@
 </main>
 
 <style lang="scss">
+    $card-color: #ffe8da;
+    $params-color: aquamarine;
+
     p.params {
-        background-color: aquamarine;
+        background-color: $params-color;
     }
 
     main {
-        background-color: #ffe8da;
+        background-color: $card-color;
         border-radius: 1em;
+        margin: 0.5em;
     }
 </style>

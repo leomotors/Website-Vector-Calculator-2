@@ -1,9 +1,20 @@
 <script lang="ts">
-    import { projectInfo } from "../json/ProjectInfo.json";
+    import { projectInfo } from "../data/ProjectInfo.json";
+    import { backgrounds } from "../data/Background.json";
+    import { onMount } from "svelte";
+
+    let selected_bg: string;
+
+    function setBackground() {
+        let mainBody = document.getElementById("MainBody");
+        mainBody.style.backgroundImage = `url("${backgrounds[selected_bg]}")`;
+    }
+
+    onMount(setBackground);
 </script>
 
 <main>
-    <span id="footer-msg">
+    <span id="info-msg">
         Made with Svelte by
         <a href={projectInfo.AuthorGitHubUrl} target="_blank">
             {projectInfo.AuthorName}
@@ -13,17 +24,21 @@
         |
         <a href={projectInfo.こころぴょんぴょん} target="_blank">Kofi</a>
     </span>
+
+    <span id="bg-section">
+        Background:
+        <select
+            id="background-select"
+            bind:value={selected_bg}
+            on:change={setBackground}
+        >
+            {#each Object.entries(backgrounds) as [name, url]}
+                <option>{name}</option>
+            {/each}
+        </select>
+    </span>
 </main>
 
 <style lang="scss">
-    $footer-bg-color: lavender;
-    $svelte-default-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-
-    #footer-msg {
-        background-color: $footer-bg-color;
-        padding: 0.5em;
-        border-radius: 0.69em;
-        font-family: "Anakotmai", $svelte-default-font;
-    }
+    @import "FooterBar";
 </style>
