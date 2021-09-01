@@ -1,3 +1,4 @@
+<!-- Basically "main" -->
 <script lang="ts">
     import { Vector } from "./backend/Vector";
 
@@ -7,21 +8,28 @@
     let Vectors: Vector[] = [];
 
     // Initialize with preset Values
-    let InitVectors: Vector[] = [new Vector(1, 2, 3), new Vector(4, 5, 6)];
-
-    function Initialize() {
-        Vectors = [];
-        InitVectors.map((v: Vector) => Vectors.push(v));
-    }
+    let InitialVectors: Vector[] = [
+        new Vector(1, 2, 3),
+        new Vector(3, 4, 5),
+        new Vector(5, 12, 13),
+    ];
 
     let input_i: number, input_j: number, input_k: number;
 
+    function clearInput() {
+        [input_i, input_j, input_k] = [undefined, undefined, undefined];
+    }
+
+    function Initialize() {
+        Vectors = [];
+        InitialVectors.map((v: Vector) => Vectors.push(v));
+        clearInput();
+    }
+
     function addVectorFromInput(): void {
-        Vectors = [
-            ...Vectors,
-            new Vector(input_i ?? 0, input_j ?? 0, input_k ?? 0),
-        ];
-        [input_i, input_j, input_k] = [null, null, null];
+        console.log(`${input_i} ${input_j} ${input_k}`);
+        Vectors = [...Vectors, new Vector(input_i, input_j, input_k)];
+        clearInput();
     }
 
     Initialize();
@@ -40,8 +48,27 @@
             <input type="number" placeholder="i" bind:value={input_i} />
             <input type="number" placeholder="j" bind:value={input_j} />
             <input type="number" placeholder="k" bind:value={input_k} />
-            <button on:click={addVectorFromInput}>+</button>
-            <button on:click={Initialize}>Reset</button>
+            <button on:click={addVectorFromInput} id="plus-sign">
+                &nbsp;&nbsp;&nbsp;
+                <!-- https://icons.getbootstrap.com/icons/plus-circle/ -->
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    fill="currentColor"
+                    class="bi bi-plus-circle"
+                    viewBox="0 0 16 16"
+                >
+                    <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                    />
+                    <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                    />
+                </svg>
+                &nbsp;&nbsp;&nbsp;
+            </button>
+            <button on:click={Initialize}>&nbsp;&nbsp;Reset&nbsp;&nbsp;</button>
         </div>
     </main>
 
@@ -51,6 +78,7 @@
         {/each}
     </div>
 
+    <div id="bottom-space" />
     <footer><FooterBar /></footer>
 </body>
 

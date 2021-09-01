@@ -2,7 +2,7 @@
 
 This folder and its item will not be shipped along with deployment.
 
-Instead, I'm using GitHub as Image Provider Service :trollface:
+Instead, I'm using GitHub as Image Hosting Service :trollface: *300IQ*
 
 ## Picture Sources (only the one I remembered)
 

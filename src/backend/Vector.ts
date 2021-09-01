@@ -3,10 +3,11 @@ export class Vector {
     readonly j: number;
     readonly k: number;
 
+    // * Construct Vector with null coalescing
     constructor(i: number, j: number, k: number) {
-        this.i = i;
-        this.j = j;
-        this.k = k;
+        this.i = i ?? 0;
+        this.j = j ?? 0;
+        this.k = k ?? 0;
     }
 
     _norm(): number {

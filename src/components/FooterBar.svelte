@@ -1,3 +1,4 @@
+<!-- Floating Bar at Bottom, Consists of Texts & Background Selection -->
 <script lang="ts">
     import { projectInfo } from "../data/ProjectInfo.json";
     import { backgrounds } from "../data/Background.json";
@@ -6,7 +7,12 @@
     let selected_bg: string;
 
     function setBackground() {
-        let mainBody = document.getElementById("MainBody");
+        if (selected_bg.startsWith("Rick Astley")) {
+            selected_bg = Object.keys(backgrounds)[0];
+            window.open(projectInfo.RickAstley, "_blank");
+        }
+
+        let mainBody: HTMLElement = document.getElementById("MainBody");
         mainBody.style.backgroundImage = `url("${backgrounds[selected_bg]}")`;
     }
 

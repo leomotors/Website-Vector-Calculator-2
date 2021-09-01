@@ -1,3 +1,4 @@
+<!-- Display each Vector in 'Card' -->
 <script lang="ts">
     import { Vector } from "../backend/Vector";
 
@@ -7,22 +8,11 @@
 
 <main>
     <p class="label">Vector #{index + 1}</p>
-    <p class="params">{vector.i}</p>
-    <p class="params">{vector.j}</p>
-    <p class="params">{vector.k}</p>
+    <span class="params">&nbsp;{vector.i}&nbsp;</span><br />
+    <span class="params">&nbsp;{vector.j}&nbsp;</span><br />
+    <span class="params">&nbsp;{vector.k}&nbsp;</span><br />
 </main>
 
 <style lang="scss">
-    $card-color: #ffe8da;
-    $params-color: aquamarine;
-
-    p.params {
-        background-color: $params-color;
-    }
-
-    main {
-        background-color: $card-color;
-        border-radius: 1em;
-        margin: 0.5em;
-    }
+    @import "VectorCard";
 </style>
