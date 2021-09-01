@@ -1,6 +1,7 @@
 <script lang="ts">
     import { projectInfo } from "../data/ProjectInfo.json";
     import { backgrounds } from "../data/Background.json";
+    import { onMount } from "svelte";
 
     let selected_bg: string;
 
@@ -8,6 +9,8 @@
         let mainBody = document.getElementById("MainBody");
         mainBody.style.backgroundImage = `url("${backgrounds[selected_bg]}")`;
     }
+
+    onMount(setBackground);
 </script>
 
 <main>
@@ -37,28 +40,5 @@
 </main>
 
 <style lang="scss">
-    $footer-bg-color-l: lavender;
-    $footer-bg-color-r: #d5d5e9;
-    $svelte-default-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-
-    span {
-        padding: 0.5em;
-        font-family: "Anakotmai", $svelte-default-font;
-    }
-
-    #info-msg {
-        background-color: $footer-bg-color-l;
-        border-radius: 0.69em;
-    }
-
-    #bg-section {
-        background-color: $footer-bg-color-r;
-        border-radius: 0.3em;
-    }
-
-    select {
-        padding: 0.15em;
-        border-radius: 0.4em;
-    }
+    @import "FooterBar";
 </style>

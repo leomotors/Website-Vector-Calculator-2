@@ -55,5 +55,5 @@
 </body>
 
 <style lang="scss">
-    @import "AppStyle";
+    @import "App";
 </style>
