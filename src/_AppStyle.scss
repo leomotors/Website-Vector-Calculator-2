@@ -1,5 +1,6 @@
 // * Style for App.svelte
 
+$svelte-h1-color: #ff3e00;
 $main-bg-color: rgba(225, 226, 244, 0.85);
 
 #MainBody {
@@ -29,7 +30,7 @@ main {
 }
 
 h1 {
-    color: #ff3e00;
+    color: $svelte-h1-color;
     font-size: 3em;
     font-weight: 400;
     text-shadow: 2px 2px 2px #610702;
