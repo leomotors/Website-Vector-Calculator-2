@@ -7,20 +7,24 @@
     let Vectors: Vector[] = [];
 
     // Initialize with preset Values
-    Vectors.push(new Vector(1, 2, 3));
-    Vectors.push(new Vector(4, 5, 6));
+    let InitVectors: Vector[] = [new Vector(1, 2, 3), new Vector(4, 5, 6)];
+
+    function Initialize() {
+        Vectors = [];
+        InitVectors.map((v: Vector) => Vectors.push(v));
+    }
 
     let input_i: number, input_j: number, input_k: number;
 
     function addVectorFromInput(): void {
-        if (input_i == null || input_j == null || input_k == null) {
-            console.log("ERROR addVectorFromInput(): Input Invalid");
-            return;
-        }
-
-        Vectors = [...Vectors, new Vector(input_i, input_j, input_k)];
+        Vectors = [
+            ...Vectors,
+            new Vector(input_i ?? 0, input_j ?? 0, input_k ?? 0),
+        ];
         [input_i, input_j, input_k] = [null, null, null];
     }
+
+    Initialize();
 </script>
 
 <body id="MainBody">
@@ -36,7 +40,8 @@
             <input type="number" placeholder="i" bind:value={input_i} />
             <input type="number" placeholder="j" bind:value={input_j} />
             <input type="number" placeholder="k" bind:value={input_k} />
-            <button on:click={addVectorFromInput}>Add</button>
+            <button on:click={addVectorFromInput}>+</button>
+            <button on:click={Initialize}>Reset</button>
         </div>
     </main>
 
