@@ -17,10 +17,13 @@
 
 <style lang="scss">
     $footer-bg-color: lavender;
+    $svelte-default-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
     #footer-msg {
         background-color: $footer-bg-color;
         padding: 0.5em;
         border-radius: 0.69em;
+        font-family: "Anakotmai", $svelte-default-font;
     }
 </style>

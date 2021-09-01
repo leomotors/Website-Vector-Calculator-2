@@ -6,9 +6,21 @@
 
     let Vectors: Vector[] = [];
 
-    // temp
+    // Initialize with preset Values
     Vectors.push(new Vector(1, 2, 3));
-    Vectors.push(new Vector(69, 69, 69));
+    Vectors.push(new Vector(4, 5, 6));
+
+    let input_i: number, input_j: number, input_k: number;
+
+    function addVectorFromInput(): void {
+        if (input_i == null || input_j == null || input_k == null) {
+            console.log("ERROR addVectorFromInput(): Input Invalid");
+            return;
+        }
+
+        Vectors = [...Vectors, new Vector(input_i, input_j, input_k)];
+        [input_i, input_j, input_k] = [null, null, null];
+    }
 </script>
 
 <body id="MainBody">
@@ -19,11 +31,13 @@
     <hr />
 
     <main>
-        <form>
-            <input />
-        </form>
-
-        <button>Add Vector</button>
+        <div class="VectorInput">
+            <span>Add new Vector:</span>
+            <input type="number" placeholder="i" bind:value={input_i} />
+            <input type="number" placeholder="j" bind:value={input_j} />
+            <input type="number" placeholder="k" bind:value={input_k} />
+            <button on:click={addVectorFromInput}>Add</button>
+        </div>
     </main>
 
     <div id="VectorsCard">
