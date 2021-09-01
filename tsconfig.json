@@ -9,6 +9,7 @@
         "public/*"
     ],
     "compilerOptions": {
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "importsNotUsedAsValues": "remove"
     }
 }
