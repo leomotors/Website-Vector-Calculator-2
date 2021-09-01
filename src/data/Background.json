@@ -1,9 +1,10 @@
 {
     "backgrounds": {
-        "こころぴょんぴょん": "https://pbs.twimg.com/media/EqKrsFdVEAANsTC.jpg",
+        "こころぴょんぴょん 1": "https://raw.githubusercontent.com/Leomotors/Website-Vector-Calculator-2/main/assets/gochiusa1.jpg",
+        "こころぴょんぴょん 2": "https://raw.githubusercontent.com/Leomotors/Website-Vector-Calculator-2/main/assets/gochiusa2.jpg",
         "Note 10 BG Silver": "https://raw.githubusercontent.com/Leomotors/Website-Vector-Calculator/main/assets/Background/Samsung_Galaxy/Note_10_Wallpaper_Silver.jpg",
         "'monke'": "https://c.tenor.com/rmQG5C63XN0AAAAC/gog-attack-on-titan.gif",
         "Gradient Giphy": "https://raw.githubusercontent.com/Leomotors/Website-Vector-Calculator/main/assets/Background/GIF/Gradient_Giphy.gif",
-        "Snow Viilage": "https://raw.githubusercontent.com/Leomotors/Website-Vector-Calculator/main/assets/Background/Minecraft/Snow_Village.jpg"
+        "Snow Village": "https://raw.githubusercontent.com/Leomotors/Website-Vector-Calculator/main/assets/Background/Minecraft/Snow_Village.jpg"
     }
 }
