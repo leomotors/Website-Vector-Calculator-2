@@ -1,6 +1,8 @@
-<!-- Floating Bar at Bottom, Consists of Texts & Background Selection -->
+<!-- Floating Bar at Bottom, Consists of Texts & Background Selection
+     Also take care of Background Management and Rick Roll you -->
 <script lang="ts">
     import { projectInfo } from "../data/ProjectInfo.json";
+    import { projectConst } from "../data/ProjectConst.json";
     import { backgrounds } from "../data/Background.json";
     import { onMount } from "svelte";
 
@@ -8,10 +10,12 @@
 
     function setBackground() {
         if (selected_bg.startsWith("Rick Astley")) {
+            // Revert Background to Default
             selected_bg = Object.keys(backgrounds)[0];
-            window.open(projectInfo.RickAstley, "_blank");
+            window.open(projectConst.RickAstley, "_blank");
         }
 
+        console.log(`Setting Background to: ${selected_bg}`);
         let mainBody: HTMLElement = document.getElementById("MainBody");
         mainBody.style.backgroundImage = `url("${backgrounds[selected_bg]}")`;
     }
@@ -28,7 +32,7 @@
         | Visit on
         <a href={projectInfo.ProjectGitHubUrl} target="_blank">GitHub</a>
         |
-        <a href={projectInfo.こころぴょんぴょん} target="_blank">Kofi</a>
+        <a href={projectConst.こころぴょんぴょん} target="_blank">Kofi</a>
     </span>
 
     <span id="bg-section">

@@ -1,21 +1,21 @@
+// * Vector Class: Heart of the Website
+
 export class Vector {
     readonly i: number;
     readonly j: number;
     readonly k: number;
+
+    readonly norm: number;
+    readonly size: number;
 
     // * Construct Vector with null coalescing
     constructor(i: number, j: number, k: number) {
         this.i = i ?? 0;
         this.j = j ?? 0;
         this.k = k ?? 0;
-    }
 
-    _norm(): number {
-        return this.i * this.i + this.j * this.j + this.k * this.k;
-    }
-
-    size(): number {
-        return Math.sqrt(this._norm());
+        this.norm = this.i * this.i + this.j * this.j + this.k * this.k;
+        this.size = Math.sqrt(this.norm);
     }
 
     mult(scalar: number): Vector {
@@ -42,10 +42,10 @@ export class Vector {
     }
 
     projectOn(other: Vector): Vector {
-        return other.mult(this.dotProd(other) / other._norm());
+        return other.mult(this.dotProd(other) / other.norm);
     }
 
     parallelogramArea(other: Vector): number {
-        return this.crossProd(other).size();
+        return this.crossProd(other).size;
     }
 }

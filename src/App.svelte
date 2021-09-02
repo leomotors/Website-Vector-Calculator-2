@@ -21,7 +21,7 @@
     }
 
     function addVectorFromInput(): void {
-        console.log(`${input_i} ${input_j} ${input_k}`);
+        console.log(`#VectorInput recieved: ${input_i} ${input_j} ${input_k}`);
         Vectors = [...Vectors, new Vector(input_i, input_j, input_k)];
         clearInput();
     }

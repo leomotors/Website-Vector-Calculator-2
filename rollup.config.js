@@ -34,7 +34,7 @@ function serve() {
 export default {
     input: 'src/main.ts',
     output: {
-        sourcemap: true,
+        sourcemap: !production,
         format: 'iife',
         name: 'app',
         file: 'public/build/bundle.js'
@@ -46,9 +46,7 @@ export default {
                 dev: !production
             }
         }),
-
         css({ output: 'bundle.css' }),
-
         resolve({
             browser: true,
             dedupe: ['svelte']
