@@ -11,6 +11,7 @@
     <span class="params">&nbsp;{vector.i}&nbsp;</span><br />
     <span class="params">&nbsp;{vector.j}&nbsp;</span><br />
     <span class="params">&nbsp;{vector.k}&nbsp;</span><br />
+    <span class="size">Size: {vector.size}</span>
 </main>
 
 <style lang="scss">
