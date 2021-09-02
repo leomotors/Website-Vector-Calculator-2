@@ -1,8 +1,8 @@
 <!-- Floating Bar at Bottom, Consists of Texts & Background Selection
      Also take care of Background Management and Rick Roll you -->
 <script lang="ts">
-    import { projectInfo } from "../data/ProjectInfo.json";
-    import { projectConst } from "../data/ProjectConst.json";
+    import { appInfo } from "../data/AppInfo.json";
+    import { appConst } from "../data/AppConst.json";
     import { backgrounds } from "../data/Background.json";
     import { onMount } from "svelte";
 
@@ -12,7 +12,8 @@
         if (selected_bg.startsWith("Rick Astley")) {
             // Revert Background to Default
             selected_bg = Object.keys(backgrounds)[0];
-            window.open(projectConst.RickAstley, "_blank");
+            // And then Rick Roll User
+            window.open(appConst.RickAstley, "_blank");
         }
 
         console.log(`Setting Background to: ${selected_bg}`);
@@ -26,13 +27,13 @@
 <main>
     <span id="info-msg">
         Made with Svelte by
-        <a href={projectInfo.AuthorGitHubUrl} target="_blank">
-            {projectInfo.AuthorName}
+        <a href={appInfo.AuthorGitHubUrl} target="_blank">
+            {appInfo.AuthorName}
         </a>
         | Visit on
-        <a href={projectInfo.ProjectGitHubUrl} target="_blank">GitHub</a>
+        <a href={appInfo.ProjectGitHubUrl} target="_blank">GitHub</a>
         |
-        <a href={projectConst.こころぴょんぴょん} target="_blank">Kofi</a>
+        <a href={appConst.こころぴょんぴょん} target="_blank">Kofi</a>
     </span>
 
     <span id="bg-section">
