@@ -1,18 +1,12 @@
 <!-- Basically "main" -->
 <script lang="ts">
     import { Vector } from "./backend/Vector";
+    import { SampleVectors } from "./data/Sample";
 
     import FooterBar from "./components/FooterBar.svelte";
     import VectorCard from "./components/VectorCard.svelte";
 
     let Vectors: Vector[] = [];
-
-    // Initialize with preset Values
-    let InitialVectors: Vector[] = [
-        new Vector(1, 2, 3),
-        new Vector(3, 4, 5),
-        new Vector(5, 12, 13),
-    ];
 
     let input_i: number, input_j: number, input_k: number;
 
@@ -22,12 +16,12 @@
 
     function Initialize() {
         Vectors = [];
-        InitialVectors.map((v: Vector) => Vectors.push(v));
+        SampleVectors.map((v: Vector) => Vectors.push(v));
         clearInput();
     }
 
     function addVectorFromInput(): void {
-        console.log(`${input_i} ${input_j} ${input_k}`);
+        console.log(`#VectorInput recieved: ${input_i} ${input_j} ${input_k}`);
         Vectors = [...Vectors, new Vector(input_i, input_j, input_k)];
         clearInput();
     }
@@ -43,7 +37,7 @@
     <hr />
 
     <main>
-        <div class="VectorInput">
+        <div id="VectorInput">
             <span>Add new Vector:</span>
             <input type="number" placeholder="i" bind:value={input_i} />
             <input type="number" placeholder="j" bind:value={input_j} />

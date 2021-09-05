@@ -4,6 +4,16 @@
 
     export let vector: Vector;
     export let index: number;
+
+    let toMultiply: number;
+
+    function multiplySelf() {
+        if (toMultiply) {
+            vector.multSelf(toMultiply);
+            vector = vector;
+        }
+        toMultiply = undefined;
+    }
 </script>
 
 <main>
@@ -11,6 +21,9 @@
     <span class="params">&nbsp;{vector.i}&nbsp;</span><br />
     <span class="params">&nbsp;{vector.j}&nbsp;</span><br />
     <span class="params">&nbsp;{vector.k}&nbsp;</span><br />
+    <span class="size">Size: {vector.size}</span><br />
+    <input type="number" placeholder="To Multiply" bind:value={toMultiply} />
+    <button on:click={multiplySelf} id="multiplyButton">Multiply</button>
 </main>
 
 <style lang="scss">
