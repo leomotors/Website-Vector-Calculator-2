@@ -3,6 +3,7 @@
 <script lang="ts">
     import { appInfo } from "../data/AppInfo.json";
     import { appConst } from "../data/AppConst.json";
+    import { Version, BuildTime } from "../config";
     import { backgrounds } from "../data/Background.json";
     import { onMount } from "svelte";
 
@@ -34,6 +35,7 @@
         <a href={appInfo.ProjectGitHubUrl} target="_blank">GitHub</a>
         |
         <a href={appConst.こころぴょんぴょん} target="_blank">Kofi</a>
+        | Version {Version} Build at {BuildTime}
     </span>
 
     <span id="bg-section">

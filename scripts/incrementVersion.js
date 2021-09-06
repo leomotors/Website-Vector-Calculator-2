@@ -1,5 +1,4 @@
-// * Increment Build Number by 1
-// * Copied from https://github.com/Leomotors/Salim-Bot/
+// * Increment Build Number by 1 and add to files
 
 const fs = require("fs");
 const chalk = require("chalk");

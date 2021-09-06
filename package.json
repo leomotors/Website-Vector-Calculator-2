@@ -1,10 +1,10 @@
 {
   "name": "mini-vector-calculator",
-  "version": "2.0.20",
+  "version": "2.0.21",
   "private": true,
   "scripts": {
-    "build": "rollup -c",
-    "dev": "node ./scripts/incrementVersion.js && rollup -c -w",
+    "build": "node ./scripts/configPackage.js && rollup -c",
+    "dev": "node ./scripts/incrementVersion.js && node ./scripts/configPackage.js && rollup -c -w",
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
