@@ -10,6 +10,7 @@
     let Vectors: Vector[] = [];
 
     let input_i: number, input_j: number, input_k: number;
+    let checkedVectors: number[] = [];
 
     function clearInput() {
         [input_i, input_j, input_k] = [undefined, undefined, undefined];
@@ -17,8 +18,9 @@
 
     function Initialize() {
         Vectors = [];
-        SampleVectors.map((v: Vector) => Vectors.push(v));
+        SampleVectors.map((v: Vector) => Vectors.push(Vector.copy(v)));
         clearInput();
+        checkedVectors = [];
     }
 
     function addVectorFromInput(): void {
@@ -31,7 +33,6 @@
         Vectors = [...Vectors, vector];
     }
 
-    let checkedVectors: number[] = [];
     function setChecked(index: number, checked: boolean) {
         if (checked) {
             checkedVectors.push(index);

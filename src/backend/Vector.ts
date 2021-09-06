@@ -17,6 +17,10 @@ export default class Vector {
         this.calcSize();
     }
 
+    static copy(v: Vector): Vector {
+        return new Vector(v.i, v.j, v.k);
+    }
+
     get i(): number { return this._i; }
     get j(): number { return this._j; }
     get k(): number { return this._k };

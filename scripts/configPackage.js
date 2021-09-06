@@ -1,5 +1,7 @@
 // * Config to config.ts
 
+process.env.TZ = 'Asia/Bangkok'
+
 const fs = require("fs");
 const chalk = require("chalk");
 
