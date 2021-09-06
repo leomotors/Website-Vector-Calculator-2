@@ -7,10 +7,15 @@
     import FooterBar from "./components/FooterBar.svelte";
     import VectorCard from "./components/VectorCard.svelte";
 
+    type calcFuncType =
+        | ((vectors: Vector[]) => Vector)
+        | ((vectors: Vector[]) => number);
+
     let Vectors: Vector[] = [];
 
     let input_i: number, input_j: number, input_k: number;
     let checkedVectors: number[] = [];
+    let result_number: number = undefined;
 
     function clearInput() {
         [input_i, input_j, input_k] = [undefined, undefined, undefined];
@@ -31,6 +36,7 @@
 
     function addVector(vector: Vector) {
         Vectors = [...Vectors, vector];
+        result_number = undefined;
     }
 
     function setChecked(index: number, checked: boolean) {
@@ -43,16 +49,21 @@
         console.log(checkedVectors);
     }
 
-    function operateChecked(
-        calcFunc: (vectors: Vector[]) => Vector
-    ): () => void {
+    function operateChecked(calcFunc: calcFuncType): () => void {
         return () => {
             let vectors: Vector[] = [];
             checkedVectors.map((index: number) => {
                 vectors.push(Vectors[index - 1]);
             });
-            addVector(calcFunc(vectors));
+            const result = calcFunc(vectors);
+            if (typeof result == "number") {
+                result_number = result;
+            } else {
+                addVector(result);
+                result_number = undefined;
+            }
             checkedVectors = [];
+            clearInput();
         };
     }
 
@@ -66,8 +77,6 @@
     <header>
         <h1>Website Vector Calculator (Version 2)</h1>
     </header>
-
-    <hr />
 
     <main>
         <div id="VectorInput">
@@ -97,7 +106,9 @@
             </button>
             <button on:click={Initialize}>&nbsp;&nbsp;Reset&nbsp;&nbsp;</button>
         </div>
-        <div id="OperationZone">
+        <hr id="AbovesBox" />
+        <span class="sBox" id="OperationZone">
+            <span>Operations:&nbsp;&nbsp;</span>
             {#each VectorOperations as Operation}
                 <button
                     class="VectorOperation"
@@ -106,7 +117,22 @@
                     >{Operation.label}</button
                 >
             {/each}
-        </div>
+        </span>
+        {#if result_number != undefined}
+            <br />
+            <br />
+            <span class="sBox" id="ResultNumber">
+                <span>Result is {result_number}</span>
+                <button
+                    id="RemoveResult"
+                    on:click={() => {
+                        result_number = undefined;
+                    }}
+                >
+                    Remove Result
+                </button>
+            </span>
+        {/if}
     </main>
 
     <div id="VectorsCard">

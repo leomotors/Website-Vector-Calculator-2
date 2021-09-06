@@ -67,5 +67,6 @@ export default class Vector {
         this._i *= scalar;
         this._j *= scalar;
         this._k *= scalar;
+        this.calcSize();
     }
 }

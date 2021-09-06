@@ -1,6 +1,6 @@
 // * Config to config.ts
 
-process.env.TZ = 'Asia/Bangkok'
+process.env.TZ = "Asia/Bangkok";
 
 const fs = require("fs");
 const chalk = require("chalk");
@@ -30,7 +30,7 @@ var formattedDate = `${year}-${month}-${day} ${hour}:${min}:${sec}`;
 const pkgInfoFile = `
 export const Version = "${version}";
 export const BuildTime = "${formattedDate}";
-`
+`;
 
 fs.writeFileSync("./src/config.ts", pkgInfoFile);
 console.log(chalk.green("[configPackage.js] Config Success\n"));
