@@ -1,4 +1,6 @@
-import { Vector } from "../backend/Vector";
+// * Sample.ts : Vector Sample Data
+
+import Vector from "../backend/Vector";
 
 export const SampleVectors = [
     new Vector(1, 2, 3),

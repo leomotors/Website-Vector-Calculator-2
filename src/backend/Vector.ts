@@ -1,6 +1,6 @@
 // * Vector Class: Heart of the Website
 
-export class Vector {
+export default class Vector {
     private _i: number;
     private _j: number;
     private _k: number;

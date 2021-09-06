@@ -1,7 +1,8 @@
 <!-- Basically "main" -->
 <script lang="ts">
-    import { Vector } from "./backend/Vector";
+    import Vector from "./backend/Vector";
     import { SampleVectors } from "./data/Sample";
+    import { VectorOperations } from "./backend/Operation";
 
     import FooterBar from "./components/FooterBar.svelte";
     import VectorCard from "./components/VectorCard.svelte";
@@ -26,6 +27,37 @@
         clearInput();
     }
 
+    function addVector(vector: Vector) {
+        Vectors = [...Vectors, vector];
+    }
+
+    let checkedVectors: number[] = [];
+    function setChecked(index: number, checked: boolean) {
+        if (checked) {
+            checkedVectors.push(index);
+        } else {
+            checkedVectors.splice(checkedVectors.indexOf(index), 1);
+        }
+        checkedVectors = checkedVectors; // Force Update
+        console.log(checkedVectors);
+    }
+
+    function operateChecked(
+        calcFunc: (vectors: Vector[]) => Vector
+    ): () => void {
+        return () => {
+            let vectors: Vector[] = [];
+            checkedVectors.map((index: number) => {
+                vectors.push(Vectors[index - 1]);
+            });
+            addVector(calcFunc(vectors));
+            checkedVectors = [];
+        };
+    }
+
+    function updateChecked(index: number): boolean {
+        return checkedVectors.includes(index);
+    }
     Initialize();
 </script>
 
@@ -64,11 +96,26 @@
             </button>
             <button on:click={Initialize}>&nbsp;&nbsp;Reset&nbsp;&nbsp;</button>
         </div>
+        <div id="OperationZone">
+            {#each VectorOperations as Operation}
+                <button
+                    class="VectorOperation"
+                    disabled={!Operation.validate(checkedVectors.length)}
+                    on:click={operateChecked(Operation.calculate)}
+                    >{Operation.label}</button
+                >
+            {/each}
+        </div>
     </main>
 
     <div id="VectorsCard">
         {#each Vectors as vector, i}
-            <VectorCard {vector} index={i} />
+            <VectorCard
+                {vector}
+                index={i + 1}
+                checkFunc={setChecked}
+                {updateChecked}
+            />
         {/each}
     </div>
 
