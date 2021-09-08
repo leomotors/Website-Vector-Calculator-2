@@ -44,6 +44,11 @@ main {
 
     input {
         margin: 0 0.5em 0.5em 0.3em;
+        border-radius: 0.7em;
+    }
+
+    button {
+        border-radius: 0.7em;
     }
 
     span {
@@ -64,6 +69,7 @@ main {
 
     button {
         margin: 0 0.5em 0.5em 0.5em;
+        border-radius: 0.7em;
     }
 }
 
